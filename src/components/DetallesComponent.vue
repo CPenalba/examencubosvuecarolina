@@ -28,12 +28,15 @@
     <hr />
     <table class="table table-hover">
       <tbody>
-        <tr v-for="c in comentario" :key="c">
+        <tr v-for="c in comentario" :key="c.id">
           <td>Usuario {{ c.idUsuario }}</td>
           <td>{{ c.comentario }}</td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div v-else>
+    <h2 style="color: blue">Sin comentarios</h2>
   </div>
 </template>
 

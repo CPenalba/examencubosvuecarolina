@@ -78,4 +78,31 @@ export default class ServiceCubos {
         });
     });
   }
+
+  getPerfilUsuario() {
+    return new Promise(function (resolve) {
+      let request = "api/Manage/PerfilUsuario";
+      let url = Global.urlApiCubos + request;
+      let headers = {
+        Authorization: `Bearer ${Global.token}`,
+      };
+      axios.get(url, { headers }).then((response) => {
+        resolve(response);
+      });
+    });
+  }
+
+  getComprasUsuario() {
+    return new Promise(function (resolve) {
+      let request = "api/Compra/ComprasUsuario";
+      let url = Global.urlApiCubos + request;
+      let headers = {
+        Authorization: `Bearer ${Global.token}`,
+      };
+      axios.get(url, { headers }).then((response) => {
+        console.log(response);
+        resolve(response.data);
+      });
+    });
+  }
 }
