@@ -23,7 +23,7 @@
     <router-link class="btn btn-danger" to="/">Volver</router-link>
   </div>
   <br />
-  <div v-if="comentario">
+  <div v-if="comentario && comentario.length > 0">
     <h2>Comentarios</h2>
     <hr />
     <table class="table table-hover">

@@ -51,13 +51,11 @@
                 Marcas
               </a>
               <ul class="dropdown-menu dropdown-menu-dark">
-                <!-- <li v-for="s in series" :key="s">
-                    <router-link
-                      class="dropdown-item"
-                      :to="'/detalles/' + s.idSerie"
-                      >{{ s.nombre }}</router-link
-                    >
-                  </li> -->
+                <li v-for="m in marcas" :key="m">
+                  <router-link class="dropdown-item" :to="'/cubosmarca/' + m">{{
+                    m
+                  }}</router-link>
+                </li>
               </ul>
             </li>
           </ul>
@@ -68,8 +66,21 @@
 </template>
 
 <script>
+import ServiceCubos from "@/services/ServiceCubos";
+const service = new ServiceCubos();
+
 export default {
   name: "MenuComponent",
+  data() {
+    return {
+      marcas: [],
+    };
+  },
+  mounted() {
+    service.getMarcas().then((result) => {
+      this.marcas = result;
+    });
+  },
 };
 </script>
 

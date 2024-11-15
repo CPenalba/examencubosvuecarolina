@@ -38,4 +38,29 @@ export default class ServiceCubos {
       });
     });
   }
+
+  getMarcas() {
+    return new Promise(function (resolve) {
+      let marcas = [];
+      let request = "api/cubos/marcas";
+      let url = Global.urlApiCubos + request;
+      console.log(url);
+      axios.get(url).then((response) => {
+        marcas = response.data;
+        resolve(marcas);
+      });
+    });
+  }
+
+  getCubosMarca(marca) {
+    return new Promise(function (resolve) {
+      let request = "api/Cubos/CubosMarca/" + marca;
+      let url = Global.urlApiCubos + request;
+      let cubos = [];
+      axios.get(url).then((response) => {
+        cubos = response.data;
+        resolve(cubos);
+      });
+    });
+  }
 }
