@@ -63,4 +63,19 @@ export default class ServiceCubos {
       });
     });
   }
+
+  login(login) {
+    return new Promise(function (resolve, reject) {
+      let request = "api/Manage/Login";
+      let url = Global.urlApiCubos + request;
+      axios
+        .post(url, login)
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
 }
